@@ -14,7 +14,7 @@ public:
 	}
 };
 
-Sapphire::Application* Sapphire::CreateApplication()
+Sapphire::Application *Sapphire::CreateApplication()
 {
 	return new Sandbox();
 }

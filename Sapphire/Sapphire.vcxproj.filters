@@ -1,36 +1,48 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Sapphire">
+      <UniqueIdentifier>{21A8434D-0D75-9E58-368E-8C0022BAD3E6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Sapphire\Events">
+      <UniqueIdentifier>{E5C488D7-5150-F69B-5A61-7990C66B529C}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Sapphire\Core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="src\Sapphire.h" />
     <ClInclude Include="src\Sapphire\Application.h">
-      <Filter>Header Files</Filter>
+      <Filter>Sapphire</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sapphire.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Sapphire\Core.h">
+      <Filter>Sapphire</Filter>
     </ClInclude>
     <ClInclude Include="src\Sapphire\EntryPoint.h">
-      <Filter>Header Files</Filter>
+      <Filter>Sapphire</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sapphire\Events\ApplicationEvent.h">
+      <Filter>Sapphire\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sapphire\Events\Event.h">
+      <Filter>Sapphire\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sapphire\Events\KeyEvent.h">
+      <Filter>Sapphire\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sapphire\Events\MouseEvent.h">
+      <Filter>Sapphire\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sapphire\Log.h">
+      <Filter>Sapphire</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sppch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sapphire\Application.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Sapphire</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sapphire\Log.cpp">
+      <Filter>Sapphire</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sppch.cpp" />
   </ItemGroup>
 </Project>

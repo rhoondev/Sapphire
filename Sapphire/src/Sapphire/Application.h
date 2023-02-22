@@ -12,5 +12,5 @@ namespace Sapphire
 		void Run();
 	};
 
-	Application* CreateApplication();
+	Application *CreateApplication();
 }
