@@ -11,8 +11,9 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Sapphire/Log.h"
 
 #ifdef SAPPHIRE_PLATFORM_WINDOWS
-	#include "Windows.h"
+    #include "Windows.h"
 #endif
 

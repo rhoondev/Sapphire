@@ -1,5 +1,5 @@
 workspace "Sapphire"
-	architecture "x64"
+	architecture "x86_64"
 	startproject "Sandbox"
 
 	configurations
@@ -10,6 +10,8 @@ workspace "Sapphire"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+include "Sapphire/vendor/GLFW"
 
 project "Sapphire"
 	location "Sapphire"
@@ -31,7 +33,14 @@ project "Sapphire"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"Sapphire/vendor/GLFW/include"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -41,26 +50,26 @@ project "Sapphire"
 
 		defines
 		{
-			"SAPPHIRE_PLATFORM_WINDOWS",
-			"SAPPHIRE_BUILD_DLL"
+			"SP_PLATFORM_WINDOWS",
+			"SP_BUILD_DLL"
 		}
 
 		postbuildcommands
 		{
-			"{COPYDIR} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"
-			--("copy /B /Y ..\\bin\\" .. outputdir .. "\\Hazel\\Hazel.dll ..\\bin\\" .. outputdir .. "\\Sandbox\\ > nul")
+			--"{COPYFILE} ../bin/" .. outputdir .. "/Sapphire/Sapphire.dll ../bin/" .. outputdir .. "/Sandbox"
+			"copy /B /Y ..\\bin\\" .. outputdir .. "\\Sapphire\\Sapphire.dll ..\\bin\\" .. outputdir .. "\\Sandbox\\ > nul"
 		}
 	
 	filter "configurations:Debug"
-		defines "SAPPHIRE_DEBUG"
+		defines "SP_DEBUG"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "SAPPHIRE_RELEASE"
+		defines "SP_RELEASE"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "SAPPHIRE_DIST"
+		defines "SP_DIST"
 		optimize "On"
 
 project "Sandbox"
@@ -95,17 +104,17 @@ project "Sandbox"
 
 		defines
 		{
-			"SAPPHIRE_PLATFORM_WINDOWS"
+			"SP_PLATFORM_WINDOWS"
 		}
 	
 	filter "configurations:Debug"
-		defines "SAPPHIRE_DEBUG"
+		defines "SP_DEBUG"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "SAPPHIRE_RELEASE"
+		defines "SP_RELEASE"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "SAPPHIRE_DIST"
+		defines "SP_DIST"
 		optimize "On"
