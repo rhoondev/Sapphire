@@ -37,6 +37,12 @@
     <ClInclude Include="src\Sapphire\Events\MouseEvent.h">
       <Filter>Sapphire\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sapphire\Layer.h">
+      <Filter>Sapphire</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sapphire\LayerStack.h">
+      <Filter>Sapphire</Filter>
+    </ClInclude>
     <ClInclude Include="src\Sapphire\Log.h">
       <Filter>Sapphire</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
       <Filter>Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\Sapphire\Application.cpp">
+      <Filter>Sapphire</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sapphire\Layer.cpp">
+      <Filter>Sapphire</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sapphire\LayerStack.cpp">
       <Filter>Sapphire</Filter>
     </ClCompile>
     <ClCompile Include="src\Sapphire\Log.cpp">
