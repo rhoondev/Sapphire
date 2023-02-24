@@ -12,6 +12,7 @@ workspace "Sapphire"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 include "Sapphire/vendor/GLFW"
+include "Sapphire/vendor/Glad"
 
 project "Sapphire"
 	location "Sapphire"
@@ -34,12 +35,14 @@ project "Sapphire"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"Sapphire/vendor/GLFW/include"
+		"Sapphire/vendor/GLFW/include",
+		"Sapphire/vendor/Glad/include"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -51,7 +54,8 @@ project "Sapphire"
 		defines
 		{
 			"SP_PLATFORM_WINDOWS",
-			"SP_BUILD_DLL"
+			"SP_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

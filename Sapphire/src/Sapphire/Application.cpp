@@ -1,7 +1,7 @@
 #include "sppch.h"
 #include "Application.h"
 #include "Events/ApplicationEvent.h"
-#include "GLFW/glfw3.h"
+#include "glad/glad.h"
 
 namespace Sapphire
 {
