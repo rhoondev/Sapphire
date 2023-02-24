@@ -4,16 +4,28 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Sapphire">
       <UniqueIdentifier>{21A8434D-0D75-9E58-368E-8C0022BAD3E6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Sapphire\Events">
       <UniqueIdentifier>{E5C488D7-5150-F69B-5A61-7990C66B529C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sapphire\ImGui">
+      <UniqueIdentifier>{0BF2AB8A-F7BF-9F90-E053-10B7CCC07BF5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Platform\WindowsWindow.h">
-      <Filter>Platform</Filter>
+    <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Sapphire.h" />
     <ClInclude Include="src\Sapphire\Application.h">
@@ -37,6 +49,9 @@
     <ClInclude Include="src\Sapphire\Events\MouseEvent.h">
       <Filter>Sapphire\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sapphire\ImGui\ImGuiLayer.h">
+      <Filter>Sapphire\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Sapphire\Layer.h">
       <Filter>Sapphire</Filter>
     </ClInclude>
@@ -52,11 +67,17 @@
     <ClInclude Include="src\sppch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\WindowsWindow.cpp">
-      <Filter>Platform</Filter>
+    <ClCompile Include="src\Platform\OpenGL\imgui_impl_opengl3.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Sapphire\Application.cpp">
       <Filter>Sapphire</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sapphire\ImGui\ImGuiLayer.cpp">
+      <Filter>Sapphire\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Sapphire\Layer.cpp">
       <Filter>Sapphire</Filter>

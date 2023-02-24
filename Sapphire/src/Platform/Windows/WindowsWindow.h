@@ -19,6 +19,8 @@ namespace Sapphire
         inline void SetEventCallback(const EventCallbackFunction& callback) override { m_Data.EventCallback = callback; }
         void SetVSync(bool enabled) override;
         bool VSyncEnabled() const override;
+
+        virtual void* GetNativeWindow() const { return m_Window; }
     private:
         virtual void Init(const WindowProperties& props);
         virtual void Shutdown();

@@ -5,12 +5,15 @@
 
 namespace Sapphire
 {
-#define BIND_EVENT_FUNCTION(x) std::bind(&Application::x, this, std::placeholders::_1)
+    Application* Application::s_Instance = nullptr;
 
     Application::Application()
     {
+        SP_CORE_ASSERT(!s_Instance, "Application already created!");
+        s_Instance = this;
+
         m_Window = std::unique_ptr<Window>(Window::Create());
-        m_Window->SetEventCallback(BIND_EVENT_FUNCTION(OnEvent));
+        m_Window->SetEventCallback(BIND_EVENT_FUNCTION(Application::OnEvent));
     }
 
     Application::~Application() {}
@@ -18,18 +21,20 @@ namespace Sapphire
     void Application::PushLayer(Layer* layer)
     {
         m_LayerStack.PushLayer(layer);
+        layer->OnAttach();
     }
 
     void Application::PushOverlay(Layer* overlay)
     {
         m_LayerStack.PushOverlay(overlay);
+        overlay->OnAttach();
     }
     
     void Application::OnEvent(Event& e)
     {
         EventDispatcher dispatcher(e);
-        dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(OnWindowClose));
-        dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FUNCTION(OnWindowResize));
+        dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(Application::OnWindowClose));
+        dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FUNCTION(Application::OnWindowResize));
         
         for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
         {
@@ -48,9 +53,9 @@ namespace Sapphire
     {
         while (m_Running)
         {
-            glClearColor(0.2, 0.3, 0.4, 1);
+            glClearColor(0.16, 0.16, 0.16, 1);
             glClear(GL_COLOR_BUFFER_BIT);
-
+            
             for (Layer* layer : m_LayerStack)
             {
                 layer->OnUpdate();

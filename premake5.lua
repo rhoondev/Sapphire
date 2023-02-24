@@ -13,6 +13,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 include "Sapphire/vendor/GLFW"
 include "Sapphire/vendor/Glad"
+include "Sapphire/vendor/imgui"
 
 project "Sapphire"
 	location "Sapphire"
@@ -36,13 +37,15 @@ project "Sapphire"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"Sapphire/vendor/GLFW/include",
-		"Sapphire/vendor/Glad/include"
+		"Sapphire/vendor/Glad/include",
+		"Sapphire/vendor/imgui"
 	}
 
 	links
 	{
 		"GLFW",
 		"Glad",
+		"Imgui",
 		"opengl32.lib"
 	}
 

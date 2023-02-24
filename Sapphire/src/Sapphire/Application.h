@@ -19,10 +19,14 @@ namespace Sapphire
         void PushOverlay(Layer* overlay);
 
         void OnEvent(Event& e);
+
+        inline Window& GetWindow() { return *m_Window; }
+        inline static Application& Get() { return *s_Instance; }
     private:
         bool OnWindowClose(WindowCloseEvent& e);
         bool OnWindowResize(WindowResizeEvent& e);
 
+        static Application* s_Instance;
         std::unique_ptr<Window> m_Window;
         bool m_Running = true;
         bool m_Minimized = false;

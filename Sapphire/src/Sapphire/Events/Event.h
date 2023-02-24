@@ -8,7 +8,7 @@ namespace Sapphire
     {
         None,
         WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
-        KeyPressed, KeyReleased,
+        KeyPressed, KeyReleased, KeyTyped,
         MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
     };
 

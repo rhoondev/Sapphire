@@ -5,7 +5,7 @@ class Sandbox : public Sapphire::Application
 public:
 	Sandbox()
 	{
-
+		PushOverlay(new Sapphire::ImGuiLayer());
 	}
 
 	~Sandbox()
