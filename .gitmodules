@@ -7,3 +7,6 @@
 [submodule "Sapphire/vendor/imgui"]
 	path = Sapphire/vendor/imgui
 	url = https://github.com/rhoondev/imgui
+[submodule "Sapphire/vendor/glm"]
+	path = Sapphire/vendor/glm
+	url = https://github.com/g-truc/glm

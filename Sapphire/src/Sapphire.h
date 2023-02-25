@@ -1,7 +1,17 @@
 #pragma once
 
+// Application
 #include "Sapphire/Application.h"
 #include "Sapphire/EntryPoint.h"
-#include "Sapphire/Layer.h"
+
+// Logging
 #include "Sapphire/Log.h"
+
+// Input
+#include "Sapphire/Input.h"
+#include "Sapphire/KeyCodes.h"
+#include "Sapphire/MouseCodes.h"
+
+// Layers
+#include "Sapphire/Layer.h"
 #include "Sapphire/ImGui/ImGuiLayer.h"

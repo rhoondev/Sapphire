@@ -80,11 +80,10 @@
       <PrecompiledHeaderFile>sppch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>SP_PLATFORM_WINDOWS;SP_BUILD_DLL;GLFW_INCLUDE_NONE;SP_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -104,14 +103,13 @@
       <PrecompiledHeaderFile>sppch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>SP_PLATFORM_WINDOWS;SP_BUILD_DLL;GLFW_INCLUDE_NONE;SP_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -132,14 +130,13 @@
       <PrecompiledHeaderFile>sppch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>SP_PLATFORM_WINDOWS;SP_BUILD_DLL;GLFW_INCLUDE_NONE;SP_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -155,7 +152,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Sapphire.h" />
     <ClInclude Include="src\Sapphire\Application.h" />
@@ -166,16 +162,20 @@
     <ClInclude Include="src\Sapphire\Events\KeyEvent.h" />
     <ClInclude Include="src\Sapphire\Events\MouseEvent.h" />
     <ClInclude Include="src\Sapphire\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Sapphire\Input.h" />
+    <ClInclude Include="src\Sapphire\KeyCodes.h" />
     <ClInclude Include="src\Sapphire\Layer.h" />
     <ClInclude Include="src\Sapphire\LayerStack.h" />
     <ClInclude Include="src\Sapphire\Log.h" />
+    <ClInclude Include="src\Sapphire\MouseCodes.h" />
     <ClInclude Include="src\Sapphire\Window.h" />
     <ClInclude Include="src\sppch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\OpenGL\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Sapphire\Application.cpp" />
+    <ClCompile Include="src\Sapphire\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Sapphire\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Sapphire\Layer.cpp" />
     <ClCompile Include="src\Sapphire\LayerStack.cpp" />

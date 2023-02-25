@@ -4,6 +4,7 @@
 #include "Sapphire/Window.h"
 #include "Sapphire/LayerStack.h"
 #include "Sapphire/Events/ApplicationEvent.h"
+#include "Sapphire/ImGui/ImGuiLayer.h"
 
 namespace Sapphire
 {
@@ -28,6 +29,7 @@ namespace Sapphire
 
         static Application* s_Instance;
         std::unique_ptr<Window> m_Window;
+        ImGuiLayer* m_ImGuiLayer;
         bool m_Running = true;
         bool m_Minimized = false;
         LayerStack m_LayerStack;

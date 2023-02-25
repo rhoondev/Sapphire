@@ -1,6 +1,7 @@
 #include "sppch.h"
-#include "Application.h"
-#include "Events/ApplicationEvent.h"
+#include "Sapphire/Application.h"
+#include "Sapphire/Events/ApplicationEvent.h"
+#include "Sapphire/Input.h"
 #include "glad/glad.h"
 
 namespace Sapphire
@@ -14,6 +15,9 @@ namespace Sapphire
 
         m_Window = std::unique_ptr<Window>(Window::Create());
         m_Window->SetEventCallback(BIND_EVENT_FUNCTION(Application::OnEvent));
+
+        m_ImGuiLayer = new ImGuiLayer();
+        PushOverlay(m_ImGuiLayer);
     }
 
     Application::~Application() {}
@@ -53,13 +57,31 @@ namespace Sapphire
     {
         while (m_Running)
         {
-            glClearColor(0.16, 0.16, 0.16, 1);
+            
+            if (Input::IsKeyPressed(KeyCode::Space))
+            {
+                glClearColor(0, 0, 0, 1);
+            }
+            else
+            {
+                glClearColor(0.16, 0.16, 0.16, 1);
+            }
+
             glClear(GL_COLOR_BUFFER_BIT);
             
             for (Layer* layer : m_LayerStack)
             {
                 layer->OnUpdate();
             }
+
+            m_ImGuiLayer->Begin();
+
+            for (Layer* layer : m_LayerStack)
+            {
+                layer->OnImGuiRender();
+            }
+
+            m_ImGuiLayer->End();
             
             m_Window->OnUpdate();
         }

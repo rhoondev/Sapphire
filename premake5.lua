@@ -11,14 +11,18 @@ workspace "Sapphire"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-include "Sapphire/vendor/GLFW"
-include "Sapphire/vendor/Glad"
-include "Sapphire/vendor/imgui"
+group "Dependencies"
+	include "Sapphire/vendor/GLFW"
+	include "Sapphire/vendor/Glad"
+	include "Sapphire/vendor/imgui"
+
+group ""
 
 project "Sapphire"
 	location "Sapphire"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -38,7 +42,8 @@ project "Sapphire"
 		"%{prj.name}/vendor/spdlog/include",
 		"Sapphire/vendor/GLFW/include",
 		"Sapphire/vendor/Glad/include",
-		"Sapphire/vendor/imgui"
+		"Sapphire/vendor/imgui",
+		"Sapphire/vendor/glm"
 	}
 
 	links
@@ -69,23 +74,24 @@ project "Sapphire"
 	
 	filter "configurations:Debug"
 		defines "SP_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "SP_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "SP_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -99,6 +105,7 @@ project "Sandbox"
 	includedirs
 	{
 		"Sapphire/vendor/spdlog/include",
+		"Sapphire/vendor/glm",
 		"Sapphire/src"
 	}
 
@@ -109,7 +116,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++20"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -119,15 +125,15 @@ project "Sandbox"
 	
 	filter "configurations:Debug"
 		defines "SP_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "SP_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "SP_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"

@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3.h">
-      <Filter>Platform\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -52,6 +49,12 @@
     <ClInclude Include="src\Sapphire\ImGui\ImGuiLayer.h">
       <Filter>Sapphire\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sapphire\Input.h">
+      <Filter>Sapphire</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sapphire\KeyCodes.h">
+      <Filter>Sapphire</Filter>
+    </ClInclude>
     <ClInclude Include="src\Sapphire\Layer.h">
       <Filter>Sapphire</Filter>
     </ClInclude>
@@ -61,14 +64,17 @@
     <ClInclude Include="src\Sapphire\Log.h">
       <Filter>Sapphire</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sapphire\MouseCodes.h">
+      <Filter>Sapphire</Filter>
+    </ClInclude>
     <ClInclude Include="src\Sapphire\Window.h">
       <Filter>Sapphire</Filter>
     </ClInclude>
     <ClInclude Include="src\sppch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\OpenGL\imgui_impl_opengl3.cpp">
-      <Filter>Platform\OpenGL</Filter>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
@@ -89,5 +95,6 @@
       <Filter>Sapphire</Filter>
     </ClCompile>
     <ClCompile Include="src\sppch.cpp" />
+    <ClCompile Include="src\Sapphire\ImGui\ImGuiBuild.cpp" />
   </ItemGroup>
 </Project>
