@@ -1,2 +1,2 @@
 # Sapphire
-Sapphire Engine is a 2D game engine which is currently in development.
+Sapphire Engine is a solo project based on The Cherno's game engine series on YouTube.

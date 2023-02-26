@@ -20,9 +20,10 @@ group ""
 
 project "Sapphire"
 	location "Sapphire"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++20"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -55,43 +56,35 @@ project "Sapphire"
 	}
 
 	filter "system:windows"
-		cppdialect "C++20"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
 		{
-			"SP_PLATFORM_WINDOWS",
-			"SP_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
-		}
-
-		postbuildcommands
-		{
-			--"{COPYFILE} ../bin/" .. outputdir .. "/Sapphire/Sapphire.dll ../bin/" .. outputdir .. "/Sandbox"
-			"copy /B /Y ..\\bin\\" .. outputdir .. "\\Sapphire\\Sapphire.dll ..\\bin\\" .. outputdir .. "\\Sandbox\\ > nul"
+			"_CRT_SECURE_NO_WARNINGS",
+			"GLFW_INCLUDE_NONE",
 		}
 	
 	filter "configurations:Debug"
 		defines "SP_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "SP_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "SP_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++20"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -115,7 +108,6 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++20"
 		systemversion "latest"
 
 		defines
@@ -126,14 +118,14 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "SP_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "SP_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "SP_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"

@@ -7,7 +7,7 @@
 
 namespace Sapphire
 {
-    class SAPPHIRE_API Input
+    class Input
     {
     public:
         static bool IsKeyPressed(KeyCode key);

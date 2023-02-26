@@ -5,7 +5,7 @@
 
 namespace Sapphire
 {
-    class SAPPHIRE_API MouseMovedEvent : public Event
+    class MouseMovedEvent : public Event
     {
     public:
         MouseMovedEvent(float x, float y) : m_MouseX(x), m_MouseY(y) {}
@@ -27,7 +27,7 @@ namespace Sapphire
         float m_MouseX, m_MouseY;
     };
 
-    class SAPPHIRE_API MouseScrolledEvent : public Event
+    class MouseScrolledEvent : public Event
     {
     public:
         MouseScrolledEvent(float xOffset, float yOffset) : m_XOffset(xOffset), m_YOffset(yOffset) {}
@@ -49,7 +49,7 @@ namespace Sapphire
         float m_XOffset, m_YOffset;
     };
 
-    class SAPPHIRE_API MouseButtonEvent : public Event
+    class MouseButtonEvent : public Event
     {
     public:
         inline int GetMouseButton() const { return m_Button; }
@@ -61,7 +61,7 @@ namespace Sapphire
         int m_Button;
     };
 
-    class SAPPHIRE_API MouseButtonPressedEvent : public MouseButtonEvent
+    class MouseButtonPressedEvent : public MouseButtonEvent
     {
     public:
         MouseButtonPressedEvent(int button) : MouseButtonEvent(button) {}
@@ -76,7 +76,7 @@ namespace Sapphire
         EVENT_CLASS_TYPE(MouseButtonPressed)
     };
 
-    class SAPPHIRE_API MouseButtonReleasedEvent : public MouseButtonEvent
+    class MouseButtonReleasedEvent : public MouseButtonEvent
     {
     public:
         MouseButtonReleasedEvent(int button) : MouseButtonEvent(button) {}

@@ -15,7 +15,7 @@ namespace Sapphire
         WindowProperties(const std::string& title = "Sapphire Engine", unsigned int width = 1920, unsigned int height = 1080) : Title(title), Width(width), Height(height) {}
     };
 
-    class SAPPHIRE_API Window
+    class Window
     {
     public:
         using EventCallbackFunction = std::function<void(Event&)>;

@@ -7,7 +7,7 @@
 
 namespace Sapphire
 {
-    class SAPPHIRE_API LayerStack
+    class LayerStack
     {
     public:
         LayerStack() = default;

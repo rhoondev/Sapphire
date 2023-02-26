@@ -64,7 +64,7 @@ namespace Sapphire
             }
             else
             {
-                glClearColor(0.16, 0.16, 0.16, 1);
+                glClearColor(0.16f, 0.16f, 0.16f, 1.0f);
             }
 
             glClear(GL_COLOR_BUFFER_BIT);

@@ -4,13 +4,13 @@
 
 namespace Sapphire
 {
-    class SAPPHIRE_API WindowResizeEvent : public Event
+    class WindowResizeEvent : public Event
     {
     public:
         WindowResizeEvent(unsigned int width, unsigned int height) : m_Width(width), m_Height(height) {}
 
-        inline float GetWidth() const { return m_Width; }
-        inline float GetHeight() const { return m_Height; }
+        inline unsigned int GetWidth() const { return m_Width; }
+        inline unsigned int GetHeight() const { return m_Height; }
 
         std::string ToString() const override
         {
@@ -23,10 +23,10 @@ namespace Sapphire
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
 
     private:
-        float m_Width, m_Height;
+        unsigned int m_Width, m_Height;
     };
 
-    class SAPPHIRE_API WindowCloseEvent : public Event
+    class WindowCloseEvent : public Event
     {
     public:
         WindowCloseEvent() {}

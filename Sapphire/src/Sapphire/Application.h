@@ -8,7 +8,7 @@
 
 namespace Sapphire
 {
-    class SAPPHIRE_API Application
+    class Application
     {
     public:
         Application();

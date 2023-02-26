@@ -1,15 +1,5 @@
 #pragma once
 
-#ifdef SP_PLATFORM_WINDOWS
-	#ifdef SP_BUILD_DLL
-		#define SAPPHIRE_API __declspec(dllexport)
-	#else
-		#define SAPPHIRE_API __declspec(dllimport)
-	#endif
-#else
-	#error Sapphire Engine only supports Windows!
-#endif
-
 #ifdef SP_DEBUG
 	#define SP_ENABLE_ASSERTS
 #endif
