@@ -10,10 +10,7 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
+#include <stdint.h>
 
-#include "Sapphire/Log.h"
-
-#ifdef SAPPHIRE_PLATFORM_WINDOWS
-    #include "Windows.h"
-#endif
+#include "Sapphire/Console.h"
 

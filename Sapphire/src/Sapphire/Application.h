@@ -6,6 +6,10 @@
 #include "Sapphire/Events/ApplicationEvent.h"
 #include "Sapphire/ImGui/ImGuiLayer.h"
 
+#include "Sapphire/Renderer/Shader.h"
+#include "Sapphire/Renderer/Buffer.h"
+#include "Sapphire/Renderer/VertexArray.h"
+
 namespace Sapphire
 {
     class Application
@@ -33,6 +37,12 @@ namespace Sapphire
         bool m_Running = true;
         bool m_Minimized = false;
         LayerStack m_LayerStack;
+
+        std::shared_ptr<Shader> m_TriangleShader;
+        std::shared_ptr<VertexArray> m_TriangleVertexArray;
+
+        std::shared_ptr<Shader> m_SquareShader;
+        std::shared_ptr<VertexArray> m_SquareVertexArray;
     };
 
     Application *CreateApplication();

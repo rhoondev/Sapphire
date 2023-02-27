@@ -5,11 +5,13 @@
 #endif
 
 #ifdef SP_ENABLE_ASSERTS
-	#define SP_ASSERT(x, ...) { if (!(x)) { SP_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-	#define SP_CORE_ASSERT(x, ...) { if (!(x)) { SP_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define CORE_ASSERT_FAILURE(test, message) Console::Assert(test, message)
+	#define CORE_ASSERT(test, success, failure) Console::Assert(test, success, failure)
+	#define CORE_ERROR(message) Console::LogError(message)
 #else
-	#define SP_ASSERT(x, ...)
-	#define SP_CORE_ASSERT(x, ...)
+	#define CORE_ASSERT(test, message)
+	#define CORE_ASSERT(test, success, failure)
+	#define CORE_ERROR(message)
 #endif
 
 #define BIT(x) (1 << x)

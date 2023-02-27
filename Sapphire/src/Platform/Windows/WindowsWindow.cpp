@@ -1,9 +1,12 @@
 #include "sppch.h"
-#include "WindowsWindow.h"
+
+#include "Platform/Windows/WindowsWindow.h"
 #include "Sapphire/Events/ApplicationEvent.h"
 #include "Sapphire/Events/MouseEvent.h"
 #include "Sapphire/Events/KeyEvent.h"
-#include "glad/glad.h"
+#include "Platform/OpenGL/OpenGLContext.h"
+
+#include <glad/glad.h>
 
 namespace Sapphire
 {
@@ -11,7 +14,7 @@ namespace Sapphire
 
     static void GLFWErrorCallback(int error, const char* desc)
     {
-        SP_CORE_ERROR("GLFW error: ({0}): {1}", error, desc);
+        Console::LogError("GLFW error: (%d): %s", error, desc);
     }
 
     Window* Window::Create(const WindowProperties& props) { return new WindowsWindow(props); }
@@ -24,21 +27,23 @@ namespace Sapphire
         m_Data.Width = props.Width;
         m_Data.Height = props.Height;
 
-        SP_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
+        Console::Log("Creating window %s (%d, %d)", props.Title.c_str(), props.Width, props.Height);
 
         if (!s_GLFWInitialized)
         {
             int success = glfwInit();
-            SP_CORE_ASSERT(success, "Failed to initialize GLFW!");
+            CORE_ASSERT(success, "Initialized GLFW", "Failed to initialize GLFW!");
             glfwSetErrorCallback(GLFWErrorCallback);
             s_GLFWInitialized = true;
         }
 
         m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, props.Title.c_str(), nullptr, nullptr);
-        glfwMakeContextCurrent(m_Window);
+
+        m_Context = new OpenGLContext(m_Window);
+        m_Context->Init();
 
         int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-        SP_CORE_ASSERT(status, "Failed to initialize Glad!");
+        CORE_ASSERT(status, "Loaded Glad OpenGL loader", "Failed to load Glad OpenGL loader!");
 
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
@@ -129,7 +134,7 @@ namespace Sapphire
             data.EventCallback(event);
         });
 
-        SP_CORE_INFO("Window initialization complete.");
+        Console::Log("Window initialization complete.");
     }
 
     void WindowsWindow::Shutdown()
@@ -140,7 +145,7 @@ namespace Sapphire
     void WindowsWindow::OnUpdate()
     {
         glfwPollEvents();
-        glfwSwapBuffers(m_Window);
+        m_Context->SwapBuffers();
     }
 
     void WindowsWindow::SetVSync(bool enabled)

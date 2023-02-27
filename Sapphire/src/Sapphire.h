@@ -5,7 +5,7 @@
 #include "Sapphire/EntryPoint.h"
 
 // Logging
-#include "Sapphire/Log.h"
+#include "Sapphire/Console.h"
 
 // Input
 #include "Sapphire/Input.h"

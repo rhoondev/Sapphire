@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sapphire/Window.h"
+#include "Sapphire/Renderer/GraphicsContext.h"
 #include "GLFW/glfw3.h"
 
 namespace Sapphire
@@ -26,6 +27,7 @@ namespace Sapphire
         virtual void Shutdown();
 
         GLFWwindow* m_Window;
+        GraphicsContext* m_Context;
 
         struct WindowData
         {
