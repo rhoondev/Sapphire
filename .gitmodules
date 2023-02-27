@@ -1,6 +1,8 @@
 [submodule "Sapphire/vendor/GLFW"]
 	path = Sapphire/vendor/GLFW
 	url = https://github.com/rhoondev/glfw
+	branch = master
+	update = rebase
 [submodule "Sapphire/vendor/imgui"]
 	path = Sapphire/vendor/imgui
 	url = https://github.com/rhoondev/imgui
