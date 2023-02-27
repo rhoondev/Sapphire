@@ -55,6 +55,7 @@ namespace Sapphire
 
             data.Width = width;
             data.Height = height;
+
             data.EventCallback(event);
         });
 

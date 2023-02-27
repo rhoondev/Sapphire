@@ -10,6 +10,7 @@
 #include "Sapphire/Application.h"
 
 #include "GLFW/glfw3.h"
+#include "glad/glad.h"
 
 
 #define IMGUI_IMPL_OPENGL_LOADER_CUSTOM
@@ -62,6 +63,7 @@ namespace Sapphire
         ImGuiIO& io = ImGui::GetIO();
         Application& app = Application::Get();
         io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
+        glViewport(0, 0, io.DisplaySize.x, io.DisplaySize.y);
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

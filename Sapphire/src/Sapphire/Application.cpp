@@ -168,7 +168,7 @@ namespace Sapphire
             }
         }
 
-        Console::Log(e.ToString());
+        // Console::Log(e.ToString());
     }
 
     void Application::Run()
