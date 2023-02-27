@@ -4,6 +4,8 @@
 [submodule "Sapphire/vendor/imgui"]
 	path = Sapphire/vendor/imgui
 	url = https://github.com/rhoondev/imgui
+	branch = docking
+	update = rebase
 [submodule "Sapphire/vendor/glm"]
 	path = Sapphire/vendor/glm
 	url = https://github.com/g-truc/glm
